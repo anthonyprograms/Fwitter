@@ -1,9 +1,11 @@
-var router = require('express').Router()
+var express = require('express')
+var router = express.Router()
 var path = require('path')
 
+router.use(express.static(__dirname + '/../assets'))
+
 router.get('/', function (req, res) {
-    //res.sendFile(path.join(__dirname, '../layouts', 'posts.html'))
-    res.sendFile('posts.html', { root: path.join(__dirname, '../layouts') })
+    res.sendFile(path.join(__dirname, '../layouts/posts.html'))
 })
 
 module.exports = router
