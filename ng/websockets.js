@@ -1,7 +1,7 @@
 angular.module('app')
 .service('WebSocketSvc', function ($rootScope) {
     function websocketHost() {
-        if ($window.location.protocol === "https:") {
+        if (window.location.protocol === "https:") {
             return "wss://" + window.location.host
         } else {
             return "ws://" + window.location.host
