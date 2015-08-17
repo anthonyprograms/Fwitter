@@ -15,5 +15,9 @@
     "lodash": "^3.10.1",
     "mongoose": "^4.1.2",
     "ws": "^0.7.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "protractor": "^2.1.0"
   }
 }
