@@ -7,4 +7,7 @@ angular.module('app')
             $location.path('/')
         })
     }
+    $scope.logout = function () {
+        console.log('logout')
+    }
 })
