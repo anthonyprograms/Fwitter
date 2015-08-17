@@ -21,7 +21,7 @@ describe('making a post', function () {
 
         // Remove the test post
         element.all(by.css('ul.list-group li')).first().getText().then(function (text) {
-            console.log(text) 
+            expect(text).to.contain(post)
         })
     })
     // Drop the database
