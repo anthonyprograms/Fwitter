@@ -1,18 +1,22 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var logger = require('morgan')
 var Post = require('./models/post');
+var websockets = require('./websockets')
 
 var app = express();
 app.use(bodyParser.json());
+app.use(logger('dev'))
 
 app.use(require('./auth'))
 app.use(require('./controllers/static'))
-app.use(require('./controllers/api/posts'))
 
+app.use('/api/posts', require('./controllers/api/posts'))
 app.use('/api/sessions', require('./controllers/api/sessions'))
 app.use('/api/users', require('./controllers/api/users'))
 
-var server = app.listen(3000, function () {
-    console.log('Server listening on', 3000)
+var port = process.env.PORT || 3000
+var server = app.listen(port, function () {
+    console.log('Server', process.pid, 'listening on', port)
 })
-require('./websockets').connect(server)
+websockets.connect(server)
