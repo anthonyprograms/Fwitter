@@ -14,13 +14,10 @@ angular.module('app')
         })
     }
     svc.register = function (username, password) {
-        return $http.post('/api/users', {
-            username: username, password: password
-        }).then(function () {
-            return svc.login(username, password)
-        })
-    }
-    svc.logout = function () {
-        $http.defaults.headers.common['X-Auth'] = undefined
+            return $http.post('/api/users', {
+                username: username, password: password
+            }).then(function () {
+                return svc.login(username, password)
+            })
     }
 })

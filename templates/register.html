@@ -1,6 +1,6 @@
 <div class='container'>
     <h1>Register</h1>
-    <form ng-submit="register(username, password)">
+    <form ng-submit="register(username, password, retype)">
         <div class="form-group">
             <label>Username</label>
             <input class="form-control" type="text" ng-model="username">
@@ -8,6 +8,9 @@
         <div class="form-group">
             <label>Password</label>
             <input class="form-control" type="password" ng-model="password">
+            <br>
+            <label>Retype Password</label>
+            <input class="form-control" type="password" ng-model="retype">
         </div>
         <input class="btn btn-success btn-lg btn-block" type="submit" value="Register">
     </form>
