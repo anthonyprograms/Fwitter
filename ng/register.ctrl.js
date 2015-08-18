@@ -3,8 +3,12 @@ angular.module('app')
     $scope.register = function (username, password) {
         UserSvc.register(username, password)
         .then(function (user) {
-            $scope.$emit('login', user)
-            $location.path('/login')
+            //$scope.$emit('login', user)
+            UserSvc.login(username, password)
+            .then(function (response) {
+                $scope.$emit('login', response.data)
+                $location.path('/')
+            })
         })
     }
 })
