@@ -1,0 +1,9 @@
+<div class='container'>
+    <h1>{{ member.username }}</h1>
+    <ul class='list-group'>
+        <li ng-repeat="post in posts | orderBy: '-date'" class='list-group-item'>
+            <strong>@{{ username }}</strong>
+            <span>{{ body }}</strong>
+        </li>
+    </ul>
+</div>
