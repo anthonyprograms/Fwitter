@@ -11,6 +11,15 @@ router.get('/api/posts', function (req, res, next) {
     })
 })
 
+router.get('/api/posts/user', function (req, res, next) {
+    Post.find({username: req})
+    .sort('-date')
+    .exec(function (err, posts) {
+        if (err) { return next(err) }
+        res.json(posts)
+    })
+})
+
 router.post('/api/posts', function (req, res, next) {
     var post = new Post({body: req.body.body})
     post.username = req.auth.username

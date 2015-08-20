@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('PostsCtrl', function ($scope, PostsSvc) {
+.controller('PostsCtrl', function ($scope, PostsSvc, $location) {
     $scope.addPost = function () {
         if ($scope.postBody) {
             PostsSvc.create({
@@ -9,6 +9,16 @@ angular.module('app')
                 $scope.postBody = null
             })
         }
+    }
+    $scope.memberPosts = function (username) {
+        var user = username
+        console.log(user)
+        $location.path('/users/' + username)
+        PostsSvc.fetchSingleUser(username)
+        .success(function (posts) {
+            $scope.userPosts = posts
+            console.log(posts)
+        })
     }
 
     PostsSvc.fetch().success(function (posts) {
